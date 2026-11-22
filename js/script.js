@@ -88,37 +88,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // -------------------------------------------------------
-    // Validação simples do cadastro
-    // -------------------------------------------------------
-    const cadastroForm = document.getElementById("cadastroForm");
+  // -------------------------------------------------------
+// Validação simples do cadastro
+// -------------------------------------------------------
+const cadastroForm = document.getElementById("cadastroForm");
 
-    if (cadastroForm) {
-        cadastroForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+if (cadastroForm) {
+    cadastroForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            const senha = cadastroForm.querySelector("#senha");
-            const confirmarSenha = cadastroForm.querySelector("#confirmarSenha");
-            const mensagem = document.getElementById("mensagem");
+        const senha = document.getElementById("senha");
+        const confirmarSenha = document.getElementById("confirmarSenha");
+        const mensagem = document.getElementById("mensagem");
 
-            if (senha && confirmarSenha && senha.value !== confirmarSenha.value) {
-                if (mensagem) {
-                    mensagem.textContent = "As senhas não coincidem.";
-                    mensagem.style.color = "#b00020";
-                }
-                confirmarSenha.focus();
-                return;
-            }
+        if (!senha || !confirmarSenha || !mensagem) {
+            return;
+        }
 
-            if (mensagem) {
-                mensagem.textContent = "Cadastro realizado com sucesso!";
-                mensagem.style.color = "green";
-            }
+        if (senha.value !== confirmarSenha.value) {
+            mensagem.textContent = "As senhas não coincidem.";
+            mensagem.style.color = "#b00020";
+            return;
+        }
 
-            cadastroForm.reset();
-        });
-    }
+        mensagem.textContent = "Cadastro realizado com sucesso!";
+        mensagem.style.color = "green";
 
+        cadastroForm.reset();
+    });
+}
   // -------------------------------------------------------
 // Validação simples do login
 // -------------------------------------------------------
