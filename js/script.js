@@ -119,33 +119,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // -------------------------------------------------------
-    // Validação simples do login
-    // -------------------------------------------------------
-    const loginForm = document.getElementById("loginForm");
+  // -------------------------------------------------------
+// Validação simples do login
+// -------------------------------------------------------
+const loginForm = document.getElementById("loginForm");
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+if (loginForm) {
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            const email = document.getElementById("email");
-            const senha = document.getElementById("senha");
-            const mensagem = document.getElementById("loginMensagem");
+        const email = document.getElementById("email");
+        const senha = document.getElementById("senha");
+        const mensagem = document.getElementById("loginMensagem");
 
-            if (!email || !senha) return;
+        if (!email || !senha) {
+            return;
+        }
 
-            if (!email.checkValidity() || senha.value.trim() === "") {
-                if (mensagem) {
-                    mensagem.textContent = "Preencha os campos corretamente.";
-                    mensagem.style.color = "#b00020";
-                }
-                return;
-            }
-
+        if (!email.checkValidity() || senha.value.trim() === "") {
             if (mensagem) {
-                mensagem.textContent = "Login validado no modo de teste.";
-                mensagem.style.color = "green";
+                mensagem.textContent = "Preencha os campos corretamente.";
+                mensagem.style.color = "#b00020";
             }
-        });
-    }
-});
+
+            return;
+        }
+
+        if (mensagem) {
+            mensagem.textContent = "Login validado no modo de teste.";
+            mensagem.style.color = "green";
+        }
+    });
+}
