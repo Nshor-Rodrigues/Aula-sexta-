@@ -143,9 +143,8 @@ if (loginForm) {
             return;
         }
 
-        if (mensagem) {
-            mensagem.textContent = "Login validado no modo de teste.";
-            mensagem.style.color = "green";
-        }
-    });
-}
+     if (mensagem) {
+        mensagem.textContent = "Login validado no modo de teste.";
+        mensagem.style.color = "green";
+    }
+});
