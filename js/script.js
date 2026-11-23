@@ -88,63 +88,66 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-  // -------------------------------------------------------
-// Validação simples do cadastro
-// -------------------------------------------------------
-const cadastroForm = document.getElementById("cadastroForm");
+    // -------------------------------------------------------
+    // Validação simples do cadastro
+    // -------------------------------------------------------
+    const cadastroForm = document.getElementById("cadastroForm");
 
-if (cadastroForm) {
-    cadastroForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+    if (cadastroForm) {
+        cadastroForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-        const senha = document.getElementById("senha");
-        const confirmarSenha = document.getElementById("confirmarSenha");
-        const mensagem = document.getElementById("mensagem");
+            const senha = document.getElementById("senha");
+            const confirmarSenha = document.getElementById("confirmarSenha");
+            const mensagem = document.getElementById("mensagem");
 
-        if (!senha || !confirmarSenha || !mensagem) {
-            return;
-        }
-
-        if (senha.value !== confirmarSenha.value) {
-            mensagem.textContent = "As senhas não coincidem.";
-            mensagem.style.color = "#b00020";
-            return;
-        }
-
-        mensagem.textContent = "Cadastro realizado com sucesso!";
-        mensagem.style.color = "green";
-
-        cadastroForm.reset();
-    });
-}
-  // -------------------------------------------------------
-// Validação simples do login
-// -------------------------------------------------------
-const loginForm = document.getElementById("loginForm");
-
-if (loginForm) {
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const email = document.getElementById("email");
-        const senha = document.getElementById("senha");
-        const mensagem = document.getElementById("loginMensagem");
-
-        if (!email || !senha) {
-            return;
-        }
-
-        if (!email.checkValidity() || senha.value.trim() === "") {
-            if (mensagem) {
-                mensagem.textContent = "Preencha os campos corretamente.";
-                mensagem.style.color = "#b00020";
+            if (!senha || !confirmarSenha || !mensagem) {
+                return;
             }
 
-            return;
-        }
+            if (senha.value !== confirmarSenha.value) {
+                mensagem.textContent = "As senhas não coincidem.";
+                mensagem.style.color = "#b00020";
+                return;
+            }
 
-     if (mensagem) {
-        mensagem.textContent = "Login validado no modo de teste.";
-        mensagem.style.color = "green";
+            mensagem.textContent = "Cadastro realizado com sucesso!";
+            mensagem.style.color = "green";
+
+            cadastroForm.reset();
+        });
+    }
+
+    // -------------------------------------------------------
+    // Validação simples do login
+    // -------------------------------------------------------
+    const loginForm = document.getElementById("loginForm");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email");
+            const senha = document.getElementById("senha");
+            const mensagem = document.getElementById("loginMensagem");
+
+            if (!email || !senha) {
+                return;
+            }
+
+            if (!email.checkValidity() || senha.value.trim() === "") {
+                if (mensagem) {
+                    mensagem.textContent = "Preencha os campos corretamente.";
+                    mensagem.style.color = "#b00020";
+                }
+
+                return;
+            }
+
+            if (mensagem) {
+                mensagem.textContent = "Login validado no modo de teste.";
+                mensagem.style.color = "green";
+            }
+        });
     }
 });
